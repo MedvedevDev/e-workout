@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add training</title>
+</head>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/training.css">
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Trainings</a></li>
+                <li class="main-header__item"><a class="active" href="/admin/add-training">Add Training</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form class="training-form" action="/admin/add-training" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+
+            <button type="submit">Add Training</button>
+        </form>
+    </main>
+</body>
+</html>

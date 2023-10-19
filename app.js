@@ -11,18 +11,20 @@ const app = express();
 
 // Middleware for parsing request bodies
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public'))); // To serve files statically (to not handle html & css files by routers and etc)
 
 // Outsourced routes
 //app.use(adminRoutes);
 app.use('/admin', adminRoutes);
 app.use(trainingRoutes);
 
+
 // app.use('/', (req, res, next) => {
 //     console.log('Main middleware');
 //     next();
 // })
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(rootDir, 'dev-data/views', '404.html'));
+        res.status(404).sendFile(path.join(rootDir, 'public/views', '404.html'));
 })
 
 //const server = http.createServer(app);
