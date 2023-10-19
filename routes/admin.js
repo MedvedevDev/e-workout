@@ -1,10 +1,12 @@
 const express = require('express');
+const path = require('path');
+
 const router = express.Router();
 
 // GET /admin/add-training
 router.get('/add-training', (req, res, next) => {
-    console.log('Add training middleware');
-    res.send(`<form action="/add-training" method="POST"><input type="text" name="title"><button type="submit">Add training</button></form>`)
+    //res.sendFile(path.join(__dirname, '../', 'dev-data/views', 'add-training.html'));
+    res.sendFile(path.join(__dirname, '../dev-data/views', 'add-training.html')); // Second argument is removed
 })
 
 // POST /admin/add-training
