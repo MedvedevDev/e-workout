@@ -2,21 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add training</title>
 </head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: "Calibri";
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .main-header {
+        width: 100%;
+        height: 3.5rem;
+        background-color: #4b70ff;
+    }
+
+    .main-header__nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+
+    .main-header__item-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .main-header__item {
+        margin: 0 1rem;
+        padding: 0;
+    }
+
+    .main-header__item a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .main-header__item a:hover,
+    .main-header__item a:active,
+    .main-header__item a.active {
+        color: #ffc9a6;
+    }
+    
+    .form-control {
+        margin: 1rem 0;
+    }
+
+    .form-control label,
+    .form-control input {
+        display: block;
+        width: 100%;
+    }
+
+    .form-control input {
+        border: 2px solid chocolate;
+        font:inherit;
+        border-radius: 2px;
+    }
+
+    button {
+        font: inherit;
+        border: 1px solid #4b70ff;
+        color: #4b70ff;
+        background: white;
+        border-radius: 3px;
+    }
+
+    button:hover,
+    button:active {
+        background-color: #3931ff;
+        color: white;
+    }
+
+    .training-form {
+        width: 20rem;
+        max-width: 90%;
+        margin: auto;
+    }
+</style>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="/">Training</a></li>
-            <li><a href="/add-training">Add training</a></li>
+<header class="main-header">
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item"><a href="/">Training</a></li>
+            <li class="main-header__item"><a href="/add-training" class="active">Add training</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <form action="/add-training" method="post">
-        <input type="text" label="title">
+    <form class="training-form" action="/add-training" method="post">
+        <div class="form-control">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+        </div>
         <button type="submit">Add training</button>
     </form>
 </main>
