@@ -4,33 +4,24 @@
     margin: auto;
 }
 
-.form-control {
-    margin: 1rem 0;
+.training-item {
+    width: 20rem;
+    max-width: 95%;
 }
 
-.form-control label,
-.form-control input {
-    display: block;
-    width: 100%;
+.training__exercise {
+    font-size: 1.2rem;
+    text-align: center;
 }
 
-.form-control input {
-    border: 1px solid #dbc441;
-    font: inherit;
-    border-radius: 2px;
+.training__reps,
+.training__sets,
+.training__muscleGroup {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
 }
 
-button {
-    font: inherit;
-    border: 1px solid #3e00a1;
-    color: #3e00a1;
-    background: white;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button:hover,
-button:active {
-    background-color: #3e00a1;
-    color: white;
+.training__note {
+    text-align: center;
 }
