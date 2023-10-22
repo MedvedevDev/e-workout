@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
     const trainings = adminData.trainings;
 
     // render() method uses default templating engine that we provided via app.set()
-    res.render('training', { trainings, docTitle: 'Trainings' });
+    res.render('training', { trainings, docTitle: 'Trainings', path: '/' });
 })
 
 module.exports = router;

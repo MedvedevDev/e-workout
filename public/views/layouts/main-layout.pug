@@ -12,8 +12,8 @@ html(lang="en")
             nav.main-header__nav
                 ul.main-header__item-list
                     li.main-header__item
-                        a(href="/") Trainings
+                        a(href="/", class=(path==='/' ? 'active': '')) Trainings
                     li.main-header__item
-                        a(href="/admin/add-training") Add Training
+                        a(href="/admin/add-training", class=(path==='/admin/add-training' ? 'active': '')) Add Training
         block content
 

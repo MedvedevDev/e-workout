@@ -11,7 +11,7 @@ router.get('/add-training', (req, res, next) => {
     //res.sendFile(path.join(__dirname, '../', 'public/views', 'add-training.html'));
     //res.sendFile(path.join(rootDir, 'public/views', 'add-training.html')); // Second argument is removed, _dirname is replaced
 
-    res.render('add-training', { docTitle: 'Add Product' });
+    res.render('add-training', { docTitle: 'Add Product', path: '/admin/add-training' });
 })
 
 // POST /admin/add-training
