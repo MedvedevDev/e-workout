@@ -1,7 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
-const rootDir = require('./util/path');
 
 // Import routes
 const adminRoutes = require('./routes/admin');
