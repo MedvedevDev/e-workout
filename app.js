@@ -4,8 +4,11 @@ const path = require('path');
 const rootDir = require('./util/path');
 
 // Import routes
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const trainingRoutes = require('./routes/training');
+
+// Import controllers
+const errorController = require('./controllers/error')
 
 const app = express();
 
@@ -18,14 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); // To serve files statically (to not handle html & css files by routers and etc)
 
 // Outsourced routes
-// app.use(adminData);
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 app.use(trainingRoutes);
 
-app.use((req, res, next) => {
-        //res.status(404).sendFile(path.join(rootDir, 'public/views', '404.html'));
-        res.status(404).render('404', { docTitle: 'Not found' });
-})
+app.use(errorController.get404Page);
 
 //const server = http.createServer(app);
 

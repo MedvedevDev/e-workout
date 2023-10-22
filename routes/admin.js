@@ -1,24 +1,15 @@
 const express = require('express');
 const path = require('path');
-const rootDir = require('../util/path');
+
+// Import controllers
+const trainingsController = require('../controllers/trainings');
 
 const router = express.Router();
 
-const trainings = [];
-
 // GET /admin/add-training
-router.get('/add-training', (req, res, next) => {
-    //res.sendFile(path.join(__dirname, '../', 'public/views', 'add-training.html'));
-    //res.sendFile(path.join(rootDir, 'public/views', 'add-training.html')); // Second argument is removed, _dirname is replaced
-
-    res.render('add-training', { docTitle: 'Add Product', path: '/admin/add-training' });
-})
+router.get('/add-training', trainingsController.getAddTraining);
 
 // POST /admin/add-training
-router.post('/add-training', (req, res, next) => {
-    trainings.push({ exerciseTitle: req.body.title })
-    res.redirect('/');
-})
+router.post('/add-training', trainingsController.postNewTraining);
 
-exports.routes = router;
-exports.trainings = trainings;
+module.exports = router;
