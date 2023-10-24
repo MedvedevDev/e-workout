@@ -12,20 +12,24 @@ const getWorkoutsFromFile = cb => {
         if (err) {
             return cb([]);
         } else {
-            console.log(JSON.parse(fileData))
             return cb(JSON.parse(fileData));
         }
     })
 }
 
+//                                                             ----- Class Workout -----
 module.exports = class Workout {
-    constructor(exerciseTitle, workoutImage, workoutReps, workoutSets, workoutNote) {
+    constructor(exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote) {
         this.exerciseTitle = exerciseTitle;
+        this.exerciseImage = exerciseImage;
+        this.exerciseReps = exerciseReps;
+        this.exerciseSets = exerciseSets;
+        this.exerciseMuscleGroup = exerciseMuscleGroup;
+        this.exerciseNote = exerciseNote;
     }
 
     save() {
         getWorkoutsFromFile(workouts => {
-            console.log('getWorkoutsFromFile' + workouts)
             workouts.push(this);
             fs.writeFile(p, JSON.stringify(workouts), err => {
                 console.log(err)

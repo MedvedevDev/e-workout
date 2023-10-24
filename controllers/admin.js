@@ -8,8 +8,9 @@ exports.getAddWorkout = (req, res, next) => {
 };
 
 exports.postNewWorkout = (req, res, next) => {
-    const workout = new Workout(req.body.title);
-    console.log(workout);
+    const { exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote } = req.body;
+    const workout = new Workout(exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote);
+    console.log('OBJECT ????????' + workout);
     workout.save();
     res.redirect('/');
 };

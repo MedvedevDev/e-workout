@@ -18,7 +18,7 @@ main {
 .main-header {
     width: 100%;
     height: 3.5rem;
-    background-color: #00695c;
+    background-color: #4c63ff;
     padding: 0 1.5rem;
 }
 
@@ -48,7 +48,7 @@ main {
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-    color: #ffeb3b;
+    color: #ff8851;
 }
 
 .grid {
@@ -94,8 +94,8 @@ main {
 
 .btn {
     font: inherit;
-    border: 1px solid #00695c;
-    color: #00695c;
+    border: 1px solid #4c63ff;
+    color: #4c63ff;
     background: white;
     border-radius: 3px;
     cursor: pointer;
@@ -103,6 +103,6 @@ main {
 
 .btn:hover,
 .btn:active {
-    background-color: #00695c;
+    background-color: #4c63ff;
     color: white;
 }
