@@ -10,4 +10,6 @@ router.get('/', mainController.getIndex);
 
 router.get('/workouts', mainController.getWorkouts);
 
+router.get('/workouts/:workoutId', mainController.getWorkout)
+
 module.exports = router;

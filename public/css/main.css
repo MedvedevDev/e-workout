@@ -106,3 +106,7 @@ main {
     background-color: #4c63ff;
     color: white;
 }
+
+.centered {
+    text-align: center;
+}

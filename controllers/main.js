@@ -15,3 +15,9 @@ exports.getWorkouts = (req, res, next) => {
     });
 }
 
+exports.getWorkout = (req, res, next) => {
+    const workoutId = req.params.workoutId;
+    Workout.findWorkoutById(workoutId, workout => {
+        res.render('main/workout-detail', { workout, docTitle: workout.title, path: '/workouts' })
+    })
+}

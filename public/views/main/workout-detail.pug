@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{docTitle}
+        link(rel="stylesheet", href="../css/main.css")
+        block styles
+    body
+        header.main-header
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a(href="/", class=(path==='/' ? 'active': '')) Main
+                    li.main-header__item
+                        a(href="/workouts", class=(path==='/workouts' ? 'active' : '')) Workouts
+                    li.main-header__item
+                        a(href="/admin/workouts", class=(path==='/admin/workouts' ? 'active' : '')) Admin Workouts
+                    li.main-header__item
+                        a(href="/admin/add-workout", class=(path==='/admin/add-workout' ? 'active': '')) Add Workout
+        block content
+            main.centered
+                h1 #{workout.exerciseTitle}
+                hr
+                div
+                    img(src=`${workout.exerciseImage}`, alt="Training")
+                h2 Reps: #{workout.exerciseReps}
+                h2 Sets: #{workout.exerciseSets}
+                h2 Muscle group: #{workout.exerciseMuscleGroup}
+                p Note: #{workout.exerciseNote}
+

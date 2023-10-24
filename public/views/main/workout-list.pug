@@ -11,14 +11,14 @@ block content
                             header.card__header
                                 h1.training__exerciseTitle #{workout.exerciseTitle}
                             div.card__image
-                                img(src="#{workout.exerciseImage}", alt="Training")
+                                img(src=`#{workout.exerciseImage}`, alt="Training")
                             div.card__content
                                 h2.training__reps Reps: #{workout.exerciseReps}
                                 h2.training__sets Sets: #{workout.exerciseSets}
                                 h2.training__muscleGroup Muscle group: #{workout.exerciseMuscleGroup}
                                 p.training__note Note: #{workout.exerciseNote}
                             div.card__actions
-                                button.btn Add training
+                                a(href=`/workouts/${workout.workoutId}`, class="btn") Details
                 else
                     h1 No trainings
 

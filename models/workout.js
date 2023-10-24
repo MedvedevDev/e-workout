@@ -29,6 +29,7 @@ module.exports = class Workout {
     }
 
     save() {
+        this.workoutId = Math.random().toString();
         getWorkoutsFromFile(workouts => {
             workouts.push(this);
             fs.writeFile(p, JSON.stringify(workouts), err => {
@@ -39,5 +40,13 @@ module.exports = class Workout {
 
     static fetchAll(cb) {
         getWorkoutsFromFile(cb);
+    }
+
+    static findWorkoutById(id, cb) {
+        getWorkoutsFromFile(workouts => {
+            const workout = workouts.find(w => w.workoutId === id);
+
+            cb(workout);
+        })
     }
 }
