@@ -12,8 +12,12 @@ html(lang="en")
             nav.main-header__nav
                 ul.main-header__item-list
                     li.main-header__item
-                        a(href="/", class=(path==='/' ? 'active': '')) Trainings
+                        a(href="/", class=(path==='/' ? 'active': '')) Main
                     li.main-header__item
-                        a(href="/admin/add-training", class=(path==='/admin/add-training' ? 'active': '')) Add Training
+                        a(href="/workouts", class=(path==='/workouts' ? 'active' : '')) Workouts
+                    li.main-header__item
+                        a(href="/admin/workouts", class=(path==='/admin/workouts' ? 'active' : '')) Admin Workouts
+                    li.main-header__item
+                        a(href="/admin/add-workout", class=(path==='/admin/add-workout' ? 'active': '')) Add Workout
         block content
 

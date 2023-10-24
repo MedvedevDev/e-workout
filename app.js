@@ -3,7 +3,7 @@ const path = require('path');
 
 // Import routes
 const adminRoutes = require('./routes/admin');
-const trainingRoutes = require('./routes/training');
+const mainRoutes = require('./routes/main');
 
 // Import controllers
 const errorController = require('./controllers/error')
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // To serve files stati
 
 // Outsourced routes
 app.use('/admin', adminRoutes);
-app.use(trainingRoutes);
+app.use(mainRoutes);
 
 app.use(errorController.get404Page);
 

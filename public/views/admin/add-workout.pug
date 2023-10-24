@@ -1,4 +1,4 @@
-extends layouts/main-layout.pug
+extends ../layouts/navigation
 
 block styles
     link(rel="stylesheet", href="../css/training.css")
@@ -6,9 +6,9 @@ block styles
 
 block content
     main
-        form.training-form(action="/admin/add-training", method="POST")
+        form.training-form(action="/admin/add-workout", method="POST")
             div.form-control
                 label(for="title") Exercise title
                 input(type="text", name="title")#title
-            button.btn(type="submit") Add Training
+            button.btn(type="submit") Add Workout
 

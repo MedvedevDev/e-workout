@@ -1,15 +1,17 @@
 const express = require('express');
-const path = require('path');
-
-// Import controllers
-const trainingsController = require('../controllers/trainings');
-
 const router = express.Router();
 
+// Import controllers
+const adminController = require('../controllers/admin');
+
 // GET /admin/add-training
-router.get('/add-training', trainingsController.getAddTraining);
+router.get('/add-workout', adminController.getAddWorkout);
+
+// GET /admin/workouts
+router.get('/workouts', adminController.getWorkouts);
 
 // POST /admin/add-training
-router.post('/add-training', trainingsController.postNewTraining);
+router.post('/add-workout', adminController.postNewWorkout);
+
 
 module.exports = router;
