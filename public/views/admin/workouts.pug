@@ -18,7 +18,7 @@ block content
                             h2.training__muscleGroup Muscle group: #{workout.exerciseMuscleGroup}
                             p.training__note Note: #{workout.exerciseNote}
                         div.card__actions
-                            a(href="/admin/edit-workout", class="btn") Edit
+                            a(href=`/admin/edit-workout/${workout.workoutId}?edit=true`, class="btn") Edit
                             form.training-form(action="/admin/delete-product", method="POST")
                                 button(type="submit" class="btn") Delete
             else

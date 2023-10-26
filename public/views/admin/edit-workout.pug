@@ -1,0 +1,34 @@
+extends ../layouts/navigation
+
+block styles
+    link(rel="stylesheet", href="../css/training.css")
+    link(rel="stylesheet", href="../css/forms.css")
+
+block content
+    main
+        form.training-form(action=(editing ? '/admin/edit-workout' : '/admin/add-workout'), method="POST")
+            div.form-control
+                label(for="title") Exercise title
+                input(type="text", name="exerciseTitle", value=(editing ? workout.exerciseTitle : ""))#title
+            div.form-control
+                label(for="imageUrl") Image
+                input(type="text", name="exerciseImage", value=(editing ? workout.exerciseImage : ""))#imageUrl
+            div.form-control
+                label(for="workoutSets") Reps
+                input(type="text", name="exerciseReps", value=(editing ? workout.exerciseReps : ""))#workoutReps
+            div.form-control
+                label(for="workoutReps") Sets
+                input(type="text", name="exerciseSets", value=(editing ? workout.exerciseSets : ""))#workoutSets
+            div.form-control
+                label(for="muscleGroup") Muscle Group
+                input(type="text", name="exerciseMuscleGroup", value=(editing ? workout.exerciseMuscleGroup : ""))#muscleGroup
+            div.form-control
+                label(for="workoutNote") Note
+                textarea#workoutNote(rows="5", name="exerciseNote")
+                    if editing
+                        #{workout.exerciseNote}
+            if editing
+                button.btn(type="submit") Update Workout
+            else
+                button.btn(type="submit") Add Workout
+
