@@ -31,4 +31,7 @@ block content
                 button.btn(type="submit") Update Workout
             else
                 button.btn(type="submit") Add Workout
+            if editing
+                input(type="hidden" value=`${workout.workoutId}`, name="workoutId")
+
 

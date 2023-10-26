@@ -19,7 +19,8 @@ const getWorkoutsFromFile = cb => {
 
 //                                                             ----- Class Workout -----
 module.exports = class Workout {
-    constructor(exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote) {
+    constructor(id, exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote) {
+        this.workoutId = id;
         this.exerciseTitle = exerciseTitle;
         this.exerciseImage = exerciseImage;
         this.exerciseReps = exerciseReps;
@@ -29,12 +30,24 @@ module.exports = class Workout {
     }
 
     save() {
-        this.workoutId = Math.random().toString();
         getWorkoutsFromFile(workouts => {
-            workouts.push(this);
-            fs.writeFile(p, JSON.stringify(workouts), err => {
-                console.log(err)
-            });
+            // Update workout
+            if (this.workoutId) {
+                const existingWorkoutIndex = workouts.findIndex(w => w.workoutId === this.workoutId);
+                const updatedWorkouts = [...workouts];
+                updatedWorkouts[existingWorkoutIndex] = this;
+
+                fs.writeFile(p, JSON.stringify(updatedWorkouts), err => {
+                    console.log(err)
+                });
+            } else {
+                // Create new workout
+                this.workoutId = Math.random().toString();
+                workouts.push(this);
+                fs.writeFile(p, JSON.stringify(workouts), err => {
+                    console.log(err)
+                });
+            }
         })
     }
 

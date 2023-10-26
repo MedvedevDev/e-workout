@@ -15,7 +15,7 @@ router.post('/add-workout', adminController.postNewWorkout);
 
 // EDIT
 router.get('/edit-workout/:workoutId', adminController.getEditWorkout);
-router.post('/edit-workout', adminController.getEditWorkout);
+router.post('/edit-workout', adminController.postEditWorkout);
 
 
 module.exports = router;
