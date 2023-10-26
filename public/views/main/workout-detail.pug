@@ -29,4 +29,7 @@ html(lang="en")
                 h2 Sets: #{workout.exerciseSets}
                 h2 Muscle group: #{workout.exerciseMuscleGroup}
                 p Note: #{workout.exerciseNote}
-
+                form(action="/statistic", method="POST")
+                    div.form-control
+                        button.btn(type="submit") Statistics
+                        input(type="hidden", name="workoutId" value=`${workout.workoutId}`)

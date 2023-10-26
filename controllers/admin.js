@@ -10,7 +10,6 @@ exports.getAddWorkout = (req, res, next) => {
 exports.postNewWorkout = (req, res, next) => {
     const { exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote } = req.body;
     const workout = new Workout(exerciseTitle, exerciseImage, exerciseReps, exerciseSets, exerciseMuscleGroup, exerciseNote);
-    console.log('OBJECT ????????' + workout);
     workout.save();
     res.redirect('/');
 };

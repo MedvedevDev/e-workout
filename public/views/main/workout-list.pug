@@ -19,6 +19,10 @@ block content
                                 p.training__note Note: #{workout.exerciseNote}
                             div.card__actions
                                 a(href=`/workouts/${workout.workoutId}`, class="btn") Details
+                                form(action="/statistic", method="POST")
+                                    div.form-control
+                                        button.btn(type="submit") Statistics
+                                        input(type="hidden", name="workoutId" value=`${workout.workoutId}`)
                 else
                     h1 No trainings
 

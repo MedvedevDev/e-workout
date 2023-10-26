@@ -1,4 +1,5 @@
 const Workout = require('../models/workout');
+const Statistic = require('../models/statistic');
 
 exports.getIndex = (req, res, next) => {
     Workout.fetchAll((workouts) => {
@@ -20,4 +21,19 @@ exports.getWorkout = (req, res, next) => {
     Workout.findWorkoutById(workoutId, workout => {
         res.render('main/workout-detail', { workout, docTitle: workout.title, path: '/workouts' })
     })
+}
+
+exports.getStatistic = (req, res, next) => {
+    res.render('main/statistic', {
+        path: '/statistic',
+        pageTitle: 'Statistic'
+    });
+}
+
+exports.postStatistic = (req, res, next) => {
+    const workoutId = req.body.workoutId;
+    Workout.findWorkoutById(workoutId, workout => {
+        Statistic.addWorkout(workoutId)
+    })
+    res.redirect('/statistic')
 }
