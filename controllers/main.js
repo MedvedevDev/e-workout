@@ -41,3 +41,9 @@ exports.postStatistic = (req, res, next) => {
     })
     res.redirect('/statistic')
 }
+
+exports.postStatisticDeleteWorkout= (req, res, next) => {
+    const workoutId = req.body.workoutId;
+    Statistic.deleteWorkoutFromStatistic(workoutId);
+    res.redirect('/statistic');
+}

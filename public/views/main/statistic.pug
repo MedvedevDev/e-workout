@@ -11,9 +11,9 @@ block content
                         header.card__header
                             h1 #{workout.id}
                         div.card__actions
-                            a(href=`/admin/edit-workout/${workout.id}?edit=true`, class="btn") Edit
-                            form.training-form(action="/admin/delete-product", method="POST")
+                            form.training-form(action="/statistic-delete-workout", method="POST")
+                                input(type="hidden", value=`${workout.id}`, name="workoutId")
                                 button(type="submit" class="btn") Delete
             else
-                h1 No trainings
+                h1 No workouts
 

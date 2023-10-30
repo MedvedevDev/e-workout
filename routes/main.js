@@ -16,4 +16,6 @@ router.get('/statistic', mainController.getStatistic);
 
 router.post('/statistic', mainController.postStatistic);
 
+router.post('/statistic-delete-workout', mainController.postStatisticDeleteWorkout);
+
 module.exports = router;
