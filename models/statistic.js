@@ -48,4 +48,19 @@ module.exports = class Statistic {
             }
         });
     }
+
+    static deleteWorkoutFromStatistic(id) {
+        fs.readFile(p, (err, fileContent) => {
+            if (err) {
+                return;
+            }
+            const updatedWorkouts = {...JSON.parse(fileContent)};
+            updatedWorkouts.workouts = updatedWorkouts.workouts.filter(w => w.id !== id);
+
+            // Write to file updated workouts array
+            fs.writeFile(p, JSON.stringify(updatedWorkouts), err => {
+                console.log(err);
+            })
+        })
+    }
 }

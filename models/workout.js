@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const Statistic = require('./statistic')
 
 const p = path.join(
     path.dirname(require.main.filename),
@@ -60,6 +61,19 @@ module.exports = class Workout {
             const workout = workouts.find(w => w.workoutId === id);
 
             cb(workout);
+        })
+    }
+
+    static deleteWorkout(id) {
+        getWorkoutsFromFile(workouts => {
+            const updatedWorkouts = workouts.filter(w => w.workoutId !== id);
+
+            fs.writeFile(p, JSON.stringify(updatedWorkouts), err => {
+                if (!err) {
+                    // Also delete from statistic
+                    Statistic.deleteWorkoutFromStatistic(id);
+                }
+            })
         })
     }
 }

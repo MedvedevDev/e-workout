@@ -19,7 +19,8 @@ block content
                             p.training__note Note: #{workout.exerciseNote}
                         div.card__actions
                             a(href=`/admin/edit-workout/${workout.workoutId}?edit=true`, class="btn") Edit
-                            form.training-form(action="/admin/delete-product", method="POST")
+                            form.training-form(action="/admin/delete-workout", method="POST")
+                                input(type="hidden", value=`${workout.workoutId}`, name="workoutId")
                                 button(type="submit" class="btn") Delete
             else
                 h1 No trainings

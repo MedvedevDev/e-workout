@@ -59,3 +59,10 @@ exports.getWorkouts = (req, res, next) => {
         res.render('admin/workouts.pug', { workouts, docTitle: 'Admin Workouts', path: '/admin/workouts' });
     });
 }
+
+// DELETE
+exports.postDeleteWorkout = (req, res, next) => {
+    const workoutId = req.body.workoutId;
+    Workout.deleteWorkout(workoutId);
+    res.redirect('/admin/workouts');
+}
