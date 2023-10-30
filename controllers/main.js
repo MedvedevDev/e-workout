@@ -1,5 +1,6 @@
 const Workout = require('../models/workout');
 const Statistic = require('../models/statistic');
+const {static} = require("express");
 
 exports.getIndex = (req, res, next) => {
     Workout.fetchAll((workouts) => {
@@ -24,10 +25,13 @@ exports.getWorkout = (req, res, next) => {
 }
 
 exports.getStatistic = (req, res, next) => {
-    res.render('main/statistic', {
-        path: '/statistic',
-        pageTitle: 'Statistic'
-    });
+    Statistic.getStatistic(statistic => {
+        res.render('main/statistic', {
+            path: '/statistic',
+            pageTitle: 'Statistic',
+            workouts: statistic.workouts
+        });
+    })
 }
 
 exports.postStatistic = (req, res, next) => {

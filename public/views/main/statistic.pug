@@ -1,0 +1,19 @@
+extends ../layouts/navigation
+block styles
+    link(rel="stylesheet", href="../css/training.css")
+
+block content
+    main
+        div.grid
+            if workouts.length > 0
+                each workout in workouts
+                    article.card.training-item
+                        header.card__header
+                            h1 #{workout.id}
+                        div.card__actions
+                            a(href=`/admin/edit-workout/${workout.id}?edit=true`, class="btn") Edit
+                            form.training-form(action="/admin/delete-product", method="POST")
+                                button(type="submit" class="btn") Delete
+            else
+                h1 No trainings
+

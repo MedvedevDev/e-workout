@@ -7,17 +7,17 @@ const p = path.join(path.dirname(require.main.filename),
 );
 
 module.exports = class Statistic {
-    static addWorkout(id, productName) {
+    static addWorkout(id) {
         // Fetch previous workout
         fs.readFile(p, (err, fileData) => {
-            let statistics = { workouts: [], workoutsCount: 0 };
+            let statistics = { workouts: [] };
             if(!err) {
                 statistics = JSON.parse(fileData);
             }
 
             // Analyze the workout => Find existing workout
             const existingWorkoutIndex = statistics.workouts.findIndex(
-                workout => workout.workoutId === id
+                w => w.id === id
             );
             const existingWorkout = statistics.workouts[existingWorkoutIndex];
             let updatedWorkout;
@@ -32,12 +32,20 @@ module.exports = class Statistic {
                 statistics.workouts = [...statistics.workouts, updatedWorkout]; // copy old array and add new workout
             }
 
-            statistics.workoutsCount = statistics.workouts.length;
             fs.writeFile(p, JSON.stringify(statistics), err => {
                 console.log(err);
             })
         })
+    }
 
-
+    static getStatistic(cb) {
+        fs.readFile(p, (err, fileContent) => {
+            const statistic = JSON.parse(fileContent);
+            if (err) {
+                cb(null);
+            } else {
+                cb(statistic);
+            }
+        });
     }
 }
