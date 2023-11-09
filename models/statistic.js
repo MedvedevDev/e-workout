@@ -55,6 +55,11 @@ module.exports = class Statistic {
                 return;
             }
             const updatedWorkouts = {...JSON.parse(fileContent)};
+            const workout = updatedWorkouts.workouts.find(workout => workout.id === id);
+            if (!workout) {
+                return;
+            }
+
             updatedWorkouts.workouts = updatedWorkouts.workouts.filter(w => w.id !== id);
 
             // Write to file updated workouts array

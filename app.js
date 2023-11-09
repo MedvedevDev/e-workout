@@ -24,8 +24,6 @@ app.use(mainRoutes);
 
 app.use(errorController.get404Page);
 
-//const server = http.createServer(app);
-
-app.listen(8000);
+module.exports = app
 
 
