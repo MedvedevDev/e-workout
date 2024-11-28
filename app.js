@@ -1,4 +1,7 @@
 const express = require('express')
+const dotenv = require('dotenv')
+const router = require('./router')
+
 const app = express()
 
 app.use(express.urlencoded({extended: false})) //tells express a user submitted data to REQUEST object (for post requests)
@@ -8,8 +11,6 @@ app.set('views', 'views')
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+app.use('/', router)
 
 app.listen(3000)
