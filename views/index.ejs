@@ -154,6 +154,73 @@
                 <a href="#">Show All</a>
             </div>
         </main>
+        <!------------------------------------END OF MAIN------------------>
+
+        <!----------RIGHT------------------>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+            </div>
+             <!----------END OF TOP------------------>
+            <!--<div class="gallery">
+                <h2>Gallery</h2>
+                <div class="images">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+                    </p>
+                </div>
+            </div>-->
+             <!----------END OF GALLERY------------------>
+
+             <!----------CREATE WORKOUT------------------>
+                <div class="create-form">
+                    <h2>Create a New Workout</h2>
+                    <form id="workoutForm" action="/exercises" method="POST">
+                        <div class="form-group">
+                            <label for="workoutName">Workout Name</label>
+                            <input type="text" id="workoutName" name="workoutName" placeholder="Enter workout name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select id="type" name="type" required>
+                                <option value="Cardio" selected>Cardio</option>
+                                <option value="Strength">Strength</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="muscleGroup">Muscle Group</label>
+                            <input type="text" id="muscleGroup" name="muscleGroup" placeholder="Enter muscle group" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <input type="text" id="duration" name="duration" placeholder="e.g., 30 mins or 1 hour" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (optional)</label>
+                            <input type="number" id="weight" name="weight" placeholder="Enter weight in kg">
+                        </div>
+                        <div class="form-group">
+                            <label for="reps">Reps (optional)</label>
+                            <input type="number" id="reps" name="reps" placeholder="Enter number of reps">
+                        </div>
+                        <button type="submit" class="add-btn">Add</button>
+                    </form>
+                </div>
+        </div>
     </div>
 </body>
 </html>

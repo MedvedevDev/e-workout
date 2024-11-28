@@ -1,5 +1,5 @@
-exports.createExercise = () => {
-
+exports.createExercise = function(req, res){
+    res.send('created')
 }
 
 exports.deleteExercise = () => {
