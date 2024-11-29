@@ -1,22 +1,26 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+dotenv.config({path: ''}) // path to config.env
+mongoose.connect() // select a connction string variable
 
 const exerciseSchema = new mongoose.Schema({
-        name: {
+     workoutName: {
             type: String,
             trim: true,
-            required: [true, 'Name is required']
+            required: false
         }, 
         type: {
             type: String,
-            required: [true, 'Type is required'],
+            required: false,
             enum: ['Cardio', 'Strength', 'Other'],
             default: 'Cardio'
         },  
         duration: {
             type: String, // Allows values like "1 hour 15 mins"
-            required: [true, 'Duration is required']
+            required: false,
         },
-        muscle_group: {
+        muscleGroup: {
             type: String,
             trim: true
         },
@@ -35,7 +39,7 @@ const exerciseSchema = new mongoose.Schema({
         date: {
             type: Date, // ISO format date
             default: Date.now,
-            required: [true, 'Date is required']
+            required: false
         }
 })
 
