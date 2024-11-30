@@ -190,32 +190,36 @@
                     <h2>Create a New Workout</h2>
                     <form id="workoutForm" action="/exercises" method="POST">
                         <div class="form-group">
-                            <label for="workoutName">Workout Name</label>
-                            <input type="text" id="workoutName" name="workoutName" placeholder="Enter workout name" required>
+                            <label for="name">Workout Name</label>
+                            <input type="text" id="name" name="name" placeholder="..." required>
                         </div>
                         <div class="form-group">
                             <label for="type">Type</label>
                             <select id="type" name="type" required>
-                                <option value="Cardio" selected>Cardio</option>
-                                <option value="Strength">Strength</option>
+                                <option value="Strength" selected>Strength</option>
+                                <option value="Cardio">Cardio</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="muscleGroup">Muscle Group</label>
-                            <input type="text" id="muscleGroup" name="muscleGroup" placeholder="Enter muscle group" required>
+                            <input type="text" id="muscleGroup" name="muscleGroup" placeholder="..." required>
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <input type="text" id="duration" name="duration" placeholder="e.g., 30 mins or 1 hour" required>
+                            <input type="text" id="duration" name="duration" placeholder="..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="callories">Callories (optional)</label>
+                            <input type="number" id="callories" name="callories" placeholder="call">
                         </div>
                         <div class="form-group">
                             <label for="weight">Weight (optional)</label>
-                            <input type="number" id="weight" name="weight" placeholder="Enter weight in kg">
+                            <input type="number" id="weight" name="weight" placeholder="kg">
                         </div>
                         <div class="form-group">
                             <label for="reps">Reps (optional)</label>
-                            <input type="number" id="reps" name="reps" placeholder="Enter number of reps">
+                            <input type="number" id="reps" name="reps" placeholder="reps">
                         </div>
                         <button type="submit" class="add-btn">Add</button>
                     </form>

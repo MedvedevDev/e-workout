@@ -1,6 +1,6 @@
 const express = require('express')
-const dotenv = require('dotenv')
 const router = require('./router')
+require('./db/mongoose')
 
 const app = express()
 
@@ -11,6 +11,6 @@ app.set('views', 'views')
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
-app.use('/', router)
+app.use(router)
 
 app.listen(3000)

@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-
-dotenv.config({path: ''}) // path to config.env
-mongoose.connect() // select a connction string variable
 
 const exerciseSchema = new mongoose.Schema({
-     workoutName: {
+        name: {
             type: String,
             trim: true,
             required: false
