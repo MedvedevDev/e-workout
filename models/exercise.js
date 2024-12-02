@@ -34,7 +34,7 @@ const exerciseSchema = new mongoose.Schema({
         },
         date: {
             type: Date, // ISO format date
-            default: Date.now,
+            default: new Date(),
             required: false
         }
 })

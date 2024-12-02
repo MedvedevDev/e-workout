@@ -115,40 +115,31 @@
                         <tr>
                             <th>Workout Name</th>
                             <th>Muscle Group</th>
-                            <th>Weight/Reps</th>
+                            <th>Weight</th>
+                            <th>Reps</th>
                             <th>Date</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td class="primary">Details</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td class="primary">Details</td>
-                        </tr>
+                        <% exercises.forEach(function(exercise){ %>
+                            <tr>
+                                <td><%= exercise.name %></td>
+                                <td><%= exercise.muscleGroup %></td>
+                                <% if (!exercise.weight){ %>
+                                    <td>---</td>
+                                <% } else {%>
+                                    <td><%= exercise.weight %></td>
+                                <% } %>
+                                <% if (!exercise.reps){ %>
+                                    <td>---</td>
+                                <% } else {%>
+                                    <td><%= exercise.reps %></td>
+                                <% } %>
+                                <td><%= exercise.date.toDateString() %></td>
+                                <td class="primary">Details</td>
+                            </tr>
+                        <% }) %>
                     </tbody>
                 </table>
                 <a href="#">Show All</a>

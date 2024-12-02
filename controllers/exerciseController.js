@@ -25,6 +25,15 @@ exports.getExercise = async function(req, res) {
     }
 }
 
+exports.getAllExercises = async function(req, res) {
+    try {
+        const exercises = await Exercise.find({});
+        await res.status(200).send(exercises);
+    } catch (e) {
+        res.status(500).send(e);
+    }
+}
+
 exports.deleteExercises = async function(req, res){
     try {
         await Exercise.deleteMany({});
@@ -73,18 +82,10 @@ exports.updateExercise = async function(req, res) {
 exports.home = async function(req, res) {
     try {
         const exercises = await Exercise.find({});
-        //await res.status(200).send(exercises).render('index');
-        await res.status(200).render('index');
+        //await res.status(200).send(exercises).render('index');        
+        await res.status(200).render('index', { exercises });
     } catch (e) {
         res.status(500).send(e);
     }
 }
 
-exports.getAllExercises = async function(req, res) {
-    try {
-        const exercises = await Exercise.find({});
-        await res.status(200).send(exercises);
-    } catch (e) {
-        res.status(500).send(e);
-    }
-}
