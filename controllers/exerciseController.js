@@ -34,6 +34,7 @@ exports.getAllExercises = async function(req, res) {
     }
 }
 
+
 exports.deleteExercises = async function(req, res){
     try {
         await Exercise.deleteMany({});
@@ -81,7 +82,8 @@ exports.updateExercise = async function(req, res) {
 
 exports.home = async function(req, res) {
     try {
-        const exercises = await Exercise.find({});
+        const exercises = await getRecentExercises();
+        console.log(exercises);
         //await res.status(200).send(exercises).render('index');        
         await res.status(200).render('index', { exercises });
     } catch (e) {
@@ -89,3 +91,15 @@ exports.home = async function(req, res) {
     }
 }
 
+
+const getRecentExercises = async function(req, res) {
+    try {
+        const weeklyPeriod = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+        const allExercises = await Exercise.find({});
+
+        const lastWeekWorkouts = allExercises.filter(ex => ex.date >= weeklyPeriod);
+        return lastWeekWorkouts;
+    } catch(e) {
+        res.status(500).send(e);
+    }
+}

@@ -4,7 +4,7 @@ require('./db/mongoose')
 
 const app = express()
 
-app.use(express.urlencoded({extended: false})) //tells express a user submitted data to REQUEST object (for post requests)
+app.use(express.urlencoded({extended: false})) //to parse a user submitted data to REQUEST object (for post requests)
 app.use(express.json())
 
 app.set('views', 'views')
