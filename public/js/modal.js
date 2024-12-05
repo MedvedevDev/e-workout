@@ -56,6 +56,21 @@ document.getElementById('updateWorkout').addEventListener('click', function() {
     })
 })
 
+// --- Delete a workout
+document.getElementById('deleteWorkout').addEventListener('click', function() {
+    const exerciseId = window.location.pathname.split('/')[2];
+
+    fetch(`/exercises/${exerciseId}`, {
+        method: 'DELETE'
+    }).then(response => {
+        alert('Workout deleted!');
+        closeModal();
+    }).catch(e => {
+        console.error('Error', e);
+    })
+})
+
+
 // --- Close modal function
 function closeModal() {
     const modal = document.getElementById('detailsModal');
