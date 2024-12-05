@@ -2,11 +2,9 @@ const Exercise = require('../models/exercise')
 
 exports.createExercise = async function(req, res){
     const exercise = new Exercise(req.body);
-    console.log(req.body);
-    
     try {
         await exercise.save();
-        res.status(201).send(exercise);
+        res.status(201).redirect('/');
     } catch (e) {
         res.status(400).send(e);
     }
@@ -18,7 +16,10 @@ exports.getExercise = async function(req, res) {
         const exercise = await Exercise.findById({ _id: id });
         if(!exercise) {
             return res.status(404).send("Exercise was not found");
-        }
+        }       
+        // res.status(200).render('details', {
+        //     exercise: exercise
+        // });
         res.status(200).send(exercise);
     }catch(e) {
         res.status(500).send(e);
@@ -57,14 +58,6 @@ exports.deleteOneExercise = async function(req, res){
 }
 
 exports.updateExercise = async function(req, res) {
-    const updates = Object.keys(req.body);
-    const validUpdates = ['name', 'type', 'duration', 'muscleGroup', 'weight', 'reps', 'callories'];
-    const isValid = updates.every(item => validUpdates.includes(item));
-
-    if(!isValid) {
-        return res.status(400).send({ 'error': 'Invalid updates!'});
-    }
-
     try {
         const exercise = await Exercise.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -74,7 +67,7 @@ exports.updateExercise = async function(req, res) {
             return res.status(404).send();
         }
 
-        res.send(exercise);
+        res.send('');
     }catch(e) {
         res.status(400).send(e);
     }
@@ -83,7 +76,6 @@ exports.updateExercise = async function(req, res) {
 exports.home = async function(req, res) {
     try {
         const exercises = await getRecentExercises();
-        console.log(exercises);
         //await res.status(200).send(exercises).render('index');        
         await res.status(200).render('index', { exercises });
     } catch (e) {

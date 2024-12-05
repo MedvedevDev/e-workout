@@ -28,7 +28,7 @@ const exerciseSchema = new mongoose.Schema({
             type: Number, // Used for strength exercises
             default: null // Optional field
         },
-        callories: {
+        calories: {
             type: Number, // Mostly used for cardio exercises
             default: null // Optional field
         },

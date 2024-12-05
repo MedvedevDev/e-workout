@@ -54,9 +54,6 @@
         <!------------------------------------MAIN------------------>
         <main>
             <h1>Main</h1>
-            <div class="date">
-                <input type="date" >
-            </div>
              <!----------GOALS------------------>
             <div class="goals">
                 <div class="sales">
@@ -114,7 +111,9 @@
                     <thead>
                         <tr>
                             <th>Workout Name</th>
+                            <th>Type</th>
                             <th>Muscle Group</th>
+                            <th>Call</th>
                             <th>Weight</th>
                             <th>Reps</th>
                             <th>Date</th>
@@ -125,19 +124,25 @@
                         <% exercises.forEach(function(exercise){ %>
                             <tr>
                                 <td><%= exercise.name %></td>
+                                <td><%= exercise.type %></td>
                                 <td><%= exercise.muscleGroup %></td>
+                                <% if (!exercise.calories){ %>
+                                    <td>-</td>
+                                <% } else {%>
+                                    <td><%= exercise.calories %></td>
+                                <% } %>
                                 <% if (!exercise.weight){ %>
-                                    <td>---</td>
+                                    <td>-</td>
                                 <% } else {%>
                                     <td><%= exercise.weight %></td>
                                 <% } %>
                                 <% if (!exercise.reps){ %>
-                                    <td>---</td>
+                                    <td>-</td>
                                 <% } else {%>
                                     <td><%= exercise.reps %></td>
                                 <% } %>
                                 <td><%= exercise.date.toDateString() %></td>
-                                <td class="primary">Details</td>
+                                <td class="primary"> <a href="javascript:void(0)" onclick="openModal('<%= exercise._id %>')">Details </a></td>
                             </tr>
                         <% }) %>
                     </tbody>
@@ -146,6 +151,56 @@
             </div>
         </main>
         <!------------------------------------END OF MAIN------------------>
+
+        <!------------------------------------DETAILS Modal------------------>
+        <div id="detailsModal" class="modal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <span class="close" id="closeModal" onclick="closeModal()">&times;</span>
+                <h2>Workout Details</h2>
+
+                <form id="detailsForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" name="type">
+                            <option value="Cardio">Cardio</option>
+                            <option value="Strength">Strength</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="muscleGroup">Muscle Group</label>
+                        <input type="text" id="muscleGroup" name="muscleGroup">
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" id="duration" name="duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="calories">Calories</label>
+                        <input type="number" id="calories" name="calories">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <input type="number" id="weight" name="weight">
+                    </div>
+                    <div class="form-group">
+                        <label for="reps">Reps</label>
+                        <input type="number" id="reps" name="reps">
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="update-btn" id="updateWorkout">Update</button>
+                        <button type="button" class="delete-btn" id="deleteWorkout">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!------------------------------------END OF DETAILS Modal------------------>
 
         <!----------RIGHT------------------>
         <div class="right">
@@ -192,8 +247,8 @@
                             <input type="text" id="duration" name="duration" placeholder="..." required>
                         </div>
                         <div class="form-group">
-                            <label for="callories">Callories (optional)</label>
-                            <input type="number" id="callories" name="callories" placeholder="call">
+                            <label for="calories">Calories (optional)</label>
+                            <input type="number" id="calories" name="calories" placeholder="cal">
                         </div>
                         <div class="form-group">
                             <label for="weight">Weight (optional)</label>
@@ -208,5 +263,6 @@
                 </div>
         </div>
     </div>
+    <script src="/js/modal.js"></script>
 </body>
 </html>
