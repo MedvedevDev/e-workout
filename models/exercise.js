@@ -31,12 +31,9 @@ const exerciseSchema = new mongoose.Schema({
         calories: {
             type: Number, // Mostly used for cardio exercises
             default: null // Optional field
-        },
-        date: {
-            type: Date, // ISO format date
-            default: new Date(),
-            required: false
         }
+},{
+    timestamps: true // two editional fields: when created and when updated
 })
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);

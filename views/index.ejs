@@ -106,14 +106,15 @@
             </div>
              <!----------WORKOUTS------------------>
             <div class="recent-workouts">
-                <h2>Recent Workouts</h2>
+                <h2>Last Week Workouts</h2>
+                <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>Workout Name</th>
                             <th>Type</th>
                             <th>Muscle Group</th>
-                            <th>Call</th>
+                            <th>Calories</th>
                             <th>Weight</th>
                             <th>Reps</th>
                             <th>Date</th>
@@ -125,7 +126,11 @@
                             <tr>
                                 <td><%= exercise.name %></td>
                                 <td><%= exercise.type %></td>
-                                <td><%= exercise.muscleGroup %></td>
+                                <% if (!exercise.muscleGroup){ %>
+                                    <td>-</td>
+                                <% } else {%>
+                                    <td><%= exercise.muscleGroup %></td>
+                                <% } %>
                                 <% if (!exercise.calories){ %>
                                     <td>-</td>
                                 <% } else {%>
@@ -141,12 +146,13 @@
                                 <% } else {%>
                                     <td><%= exercise.reps %></td>
                                 <% } %>
-                                <td><%= exercise.date.toDateString() %></td>
+                                <td><%= exercise.createdAt.toLocaleDateString('en-CA') %></td>
                                 <td class="primary"> <a href="javascript:void(0)" onclick="openModal('<%= exercise._id %>')">Details </a></td>
                             </tr>
                         <% }) %>
                     </tbody>
                 </table>
+                </div>
                 <a href="#">Show All</a>
             </div>
         </main>
@@ -240,11 +246,11 @@
                         </div>
                         <div class="form-group">
                             <label for="muscleGroup">Muscle Group</label>
-                            <input type="text" id="muscleGroup" name="muscleGroup" placeholder="..." required>
+                            <input type="text" id="muscleGroup" name="muscleGroup" placeholder="...">
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <input type="text" id="duration" name="duration" placeholder="..." required>
+                            <input type="text" id="duration" name="duration" placeholder="...">
                         </div>
                         <div class="form-group">
                             <label for="calories">Calories (optional)</label>

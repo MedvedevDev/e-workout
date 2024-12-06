@@ -26,10 +26,18 @@ exports.getExercise = async function(req, res) {
     }
 }
 
+// GET /exercises?type=Cardio
 exports.getAllExercises = async function(req, res) {
     try {
-        const exercises = await Exercise.find({});
-        await res.status(200).send(exercises);
+        if (req.query.type === 'Cardio') {
+            const exercises = await Exercise.find({ 
+                type: 'Cardio'
+            });
+            await res.status(200).send(exercises); 
+        } else {
+            const exercises = await Exercise.find({});
+            await res.status(200).send(exercises);
+        }
     } catch (e) {
         res.status(500).send(e);
     }
@@ -89,7 +97,7 @@ const getRecentExercises = async function(req, res) {
         const weeklyPeriod = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
         const allExercises = await Exercise.find({});
 
-        const lastWeekWorkouts = allExercises.filter(ex => ex.date >= weeklyPeriod);
+        const lastWeekWorkouts = allExercises.filter(ex => ex.createdAt >= weeklyPeriod);
         return lastWeekWorkouts;
     } catch(e) {
         res.status(500).send(e);

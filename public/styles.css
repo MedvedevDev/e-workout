@@ -263,39 +263,64 @@ main .recent-workouts {
     margin-top: 2rem;
 }
 
+/*-----------------------------------MAIN TABLE */
+main .recent-workouts {
+    margin-top: 2rem;
+}
+
 main .recent-workouts h2 {
     margin-bottom: 0.8rem;
 }
 
-main .recent-workouts table {
-    background: var(--color-white);
-    padding: var(--card-padding);
-    width: 100%;
-    border-radius: var(--card-border-radius);
-    text-align: center;
+.recent-workouts .table-container {
+    max-height: 350px; 
+    overflow-y: auto; /* to enable vertical scrolling */
+    border-radius: var(--card-border-radius); 
+    box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
 
-main .recent-workouts table:hover{
+.recent-workouts .table-container:hover{
     box-shadow: none;
 }
 
-main .recent-workouts table tbody td{
-    height: 2.8rem;
-    border-bottom: 1px solid var(--color-light);
-    color: var(--color-dark-variant);
+.recent-workouts table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white);
+    padding: var(--card-padding);
+    text-align: center;
 }
 
-main .recent-workouts table tbody tr:last-child td{
+.recent-workouts table thead { /* to place header above scrolling rows */
+    position: sticky; 
+    top: 0;
+    background-color: var(--color-white);
+    z-index: 1; 
+}
+
+.recent-workouts table th, 
+.recent-workouts table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--color-light);
+
+}
+
+.recent-workouts table tbody tr:last-child td {
     border: none;
 }
 
-main .recent-workouts a {
+.recent-workouts table tbody td {
+    color: var(--color-dark-variant);
+}
+
+.recent-workouts a {
     text-align: center;
     display: block;
     margin: 1rem auto;
     color: var(--color-primary);
+
 }
 /*-----------------------------------RIGHT*/
 .right {
