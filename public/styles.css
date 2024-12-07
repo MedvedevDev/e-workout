@@ -94,10 +94,6 @@ small {
     font-size: 0.75rem;
 }
 
-.text-muted {
-    color: var(--color-info-dark);
-}
-
 p {
     color: var(--color-dark-variant);
 }
@@ -229,18 +225,8 @@ main .goals > div:hover {
 
 main .goals > div span {
     background: var(--color-primary);
-    padding: 0.5rem;
-    border-radius: 50%;
     color: var(--color-white);
     font-size: 2rem;
-}
-
-main .goals > div.sales2 span {
-    background-color: var(--color-danger);
-}
-
-main .goals > div.sales3 span {
-    background-color: var(--color-success);
 }
 
 main .goals > div .middle {
@@ -409,19 +395,19 @@ main .recent-workouts h2 {
     gap: 0.6rem;
 }
 
-.form-group {
+.form-groupCreate {
     display: flex;
     flex-direction: column;
 }
 
-.form-group label {
+.form-groupCreate label {
     font-size: 0.8rem;
     color: var(--color-info-dark);
     margin-bottom: 0.2rem;
 }
 
-.form-group input, 
-.form-group select {
+.form-groupCreate input, 
+.form-groupCreate select {
     padding: 0.6rem;
     font-size: 1rem;
     border-radius: var(--border-radius-1);
@@ -431,11 +417,12 @@ main .recent-workouts h2 {
 }
 
 
-.form-group input::placeholder {
+.form-groupCreate input::placeholder {
     color: var(--color-info-dark);
 }
 
 .add-btn {
+    margin-top: 1rem;
     background: var(--color-primary);
     color: var(--color-white);
     padding: 0.8rem;

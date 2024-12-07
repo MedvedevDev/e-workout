@@ -34,7 +34,7 @@ exports.getAllExercises = async function(req, res) {
 
     if (req.query.sortBy) {
         const parts = req.query.sortBy.split(':');
-        console.log(parts) // [ 'createdAt', 'desc' ]
+        //console.log(parts) // [ 'createdAt', 'desc' ]
         sort[parts[0]] = parts[1] === 'desc' ? -1 : 1;
     }
 
@@ -110,4 +110,12 @@ const getRecentExercises = async function(req, res) {
     } catch(e) {
         res.status(500).send(e);
     }
+}
+
+const countWeeklyCallories = async function(req, res) {
+    
+}
+
+const countWeeklyRunningDistance = async function(req, res) {
+    
 }

@@ -18,19 +18,24 @@ const exerciseSchema = new mongoose.Schema({
         },
         muscleGroup: {
             type: String,
-            trim: true
+            trim: true,
+            default: null 
+        },
+        distance: {
+            type: Number,
+            default: null 
         },
         weight: {
             type: Number, // Used for strength exercises
-            default: null // Optional field
+            default: null 
         },
         reps: {
             type: Number, // Used for strength exercises
-            default: null // Optional field
+            default: null 
         },
         calories: {
             type: Number, // Mostly used for cardio exercises
-            default: null // Optional field
+            default: null 
         }
 },{
     timestamps: true // two editional fields: when created and when updated

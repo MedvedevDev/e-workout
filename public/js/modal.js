@@ -1,3 +1,37 @@
+// --- Change fields when workout type is changed
+document.addEventListener('DOMContentLoaded', () => {
+    const typeField = document.getElementById('typeCreate');
+    const muscleGroup = document.querySelector('.form-groupCreate:nth-child(3)');
+    const durationGroup = document.querySelector('.form-groupCreate:nth-child(4)'); 
+    const caloriesGroup = document.querySelector('.form-groupCreate:nth-child(5)'); 
+    const muscleGroupLabel = muscleGroup.querySelector('label');
+    const muscleGroupInput = muscleGroup.querySelector('input');
+
+    // Hide Duration and Calories because Strength workout is selected by default
+    durationGroup.style.display = 'none';
+    caloriesGroup.style.display = 'none';
+
+    typeField.addEventListener("change", (e) => {
+         if (e.target.value === "Cardio") {            
+            muscleGroupLabel.textContent = 'Distance';
+            muscleGroupInput.id = 'distance';
+            muscleGroupInput.name = 'distance';
+            muscleGroupInput.placeholder = 'km';
+
+            durationGroup.style.display = '';
+            caloriesGroup.style.display = '';
+        } else {
+            muscleGroupLabel.textContent = 'Muscle Group';
+            muscleGroupInput.id = 'muscleGroup';
+            muscleGroupInput.name = 'muscleGroup';
+            muscleGroupInput.placeholder = '...';
+
+            durationGroup.style.display = 'none';
+            caloriesGroup.style.display = 'none';
+        }
+    });
+});
+
 // --- Open modal function
 function openModal(exerciseId) {
     window.history.pushState({}, "", `/exercises/${exerciseId}`); // Update URL

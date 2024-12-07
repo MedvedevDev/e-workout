@@ -27,7 +27,7 @@
                     <span class="material-icons-sharp">
                         grid_view
                         </span>
-                    <h3>Dashboard</h3>
+                    <h3>Main</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -62,46 +62,27 @@
                     </span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Total</h3>
+                            <h3>Total weekly callories</h3>
                             <h1>#43245434</h1>
                         </div>
                         <div class="progress">
 
                         </div>
                     </div>
-                    <small class="text-muted">Last Week</small>
                 </div>
 
                 <div class="sales2">
                     <span class="material-icons-sharp">
-                        analytics
+                        directions_run
                     </span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Total</h3>
+                            <h3>Total weekly running distance</h3>
                             <h1>#43245434</h1>
                         </div>
                         <div class="progress">
-
                         </div>
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
-                </div>
-
-                <div class="sales3">
-                    <span class="material-icons-sharp">
-                        analytics
-                    </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total</h3>
-                            <h1>#43245434</h1>
-                        </div>
-                        <div class="progress">
-
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 24 Hours</small>
                 </div>
             </div>
              <!----------WORKOUTS------------------>
@@ -232,35 +213,35 @@
                 <div class="create-form">
                     <h2>Create a New Workout</h2>
                     <form id="workoutForm" action="/exercises" method="POST">
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="name">Workout Name</label>
                             <input type="text" id="name" name="name" placeholder="..." required>
                         </div>
-                        <div class="form-group">
-                            <label for="type">Type</label>
-                            <select id="type" name="type" required>
-                                <option value="Strength" selected>Strength</option>
+                        <div class="form-groupCreate">
+                            <label for="typeCreate">Type</label>
+                            <select id="typeCreate" name="type">
+                                <option value="Strength">Strength</option>
                                 <option value="Cardio">Cardio</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="muscleGroup">Muscle Group</label>
                             <input type="text" id="muscleGroup" name="muscleGroup" placeholder="...">
                         </div>
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="duration">Duration</label>
-                            <input type="text" id="duration" name="duration" placeholder="...">
+                            <input type="text" id="duration" name="duration" placeholder="min">
                         </div>
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="calories">Calories (optional)</label>
                             <input type="number" id="calories" name="calories" placeholder="cal">
                         </div>
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="weight">Weight (optional)</label>
                             <input type="number" id="weight" name="weight" placeholder="kg">
                         </div>
-                        <div class="form-group">
+                        <div class="form-groupCreate">
                             <label for="reps">Reps (optional)</label>
                             <input type="number" id="reps" name="reps" placeholder="reps">
                         </div>
