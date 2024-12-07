@@ -27,17 +27,25 @@ exports.getExercise = async function(req, res) {
 }
 
 // GET /exercises?type=Cardio
+// GET /exercises?limit=10&skip=10
+// GET /exercises?sortBy=createdAt:asc
 exports.getAllExercises = async function(req, res) {
+    const sort = {};
+
+    if (req.query.sortBy) {
+        const parts = req.query.sortBy.split(':');
+        console.log(parts) // [ 'createdAt', 'desc' ]
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1;
+    }
+
     try {
-        if (req.query.type === 'Cardio') {
-            const exercises = await Exercise.find({ 
-                type: 'Cardio'
-            });
-            await res.status(200).send(exercises); 
-        } else {
-            const exercises = await Exercise.find({});
+            const exercises = await Exercise.find( 
+                req.query.type ? {type: req.query.type} : {}
+            )
+                .limit(parseInt(req.query.limit))
+                .skip(parseInt(req.query.skip))
+                .sort(sort);
             await res.status(200).send(exercises);
-        }
     } catch (e) {
         res.status(500).send(e);
     }
