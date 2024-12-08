@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const muscleGroup = document.querySelector('.form-groupCreate:nth-child(3)');
     const durationGroup = document.querySelector('.form-groupCreate:nth-child(4)'); 
     const caloriesGroup = document.querySelector('.form-groupCreate:nth-child(5)'); 
+    const weightGroup = document.querySelector('.form-groupCreate:nth-child(6)'); 
+    const repsGroup = document.querySelector('.form-groupCreate:nth-child(7)'); 
     const muscleGroupLabel = muscleGroup.querySelector('label');
     const muscleGroupInput = muscleGroup.querySelector('input');
 
@@ -20,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             durationGroup.style.display = '';
             caloriesGroup.style.display = '';
+            weightGroup.style.display = 'none';
+            repsGroup.style.display = 'none';
         } else {
             muscleGroupLabel.textContent = 'Muscle Group';
             muscleGroupInput.id = 'muscleGroup';
@@ -28,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             durationGroup.style.display = 'none';
             caloriesGroup.style.display = 'none';
+            weightGroup.style.display = '';
+            repsGroup.style.display = '';
         }
     });
 });
@@ -46,6 +52,7 @@ function openModal(exerciseId) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            // if data.type.=== 
             
             // Fill the modal with actual workout data
             document.getElementById('name').value = data.name;
