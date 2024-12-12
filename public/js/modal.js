@@ -61,7 +61,7 @@ function openModal(exerciseId) {
                 // Fill the modal with actual workout data
                 document.getElementById('name').value = data.name;
                 document.getElementById('type').value = data.type;
-                document.getElementById('duration').value = data.duration;
+                document.getElementById('duration').value = data.duration + ' min';
                 document.getElementById('calories').value = data.calories;
                 document.getElementById('distance').value = data.distance;
 

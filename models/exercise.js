@@ -13,7 +13,7 @@ const exerciseSchema = new mongoose.Schema({
             default: 'Cardio'
         },  
         duration: {
-            type: String, // Allows values like "1 hour 15 mins"
+            type: String,
             required: false,
         },
         muscleGroup: {
@@ -26,19 +26,19 @@ const exerciseSchema = new mongoose.Schema({
             default: null 
         },
         weight: {
-            type: Number, // Used for strength exercises
+            type: Number, // for strength exercises
             default: null 
         },
         reps: {
-            type: Number, // Used for strength exercises
+            type: Number, // for strength exercises
             default: null 
         },
         calories: {
-            type: Number, // Mostly used for cardio exercises
+            type: Number, // used for cardio exercises
             default: null 
         }
 },{
-    timestamps: true // two editional fields: when created and when updated
+    timestamps: true // when created and when updated
 })
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);
